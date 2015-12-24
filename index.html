@@ -17,13 +17,22 @@
   </head>
   <body>
 
+    <div id="changeTaskPopup" class="hide">
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <input type="text" placeholder="Change the task" class="form-control" id="changeitem">
+        <button type="button" id="popupButton" class="btn btn-primary">Change!</button>
+      </div>
+    </form>
+  </div>
+
     <div class="jumbotron">
       <h1>My ToDo list</h1>
       <div class="container">
         <form class="form-horizontal">
           <div class="form-group">
             <input type="text" class="form-control text-center" id="todoitem" placeholder="Type in a new task to do">
-            <button type="submit" id="addButton" class="btn btn-primary btn-lg btn-block">Add to the list!</button>
+            <button type="button" id="addButton" class="btn btn-primary btn-lg btn-block">Add to the list!</button>
           </div>
         </form>
       </div>
@@ -35,10 +44,7 @@
 
         <div class="todo-div col-xs-12 col-md-6">
           <h3>To do</h3>
-          <ul id="todoul" class="list-group">
-            <li class="list-group-item">test</li>
-
-          </ul>
+          <ul id="todoul" class="list-group"></ul>
         </div>
 
         <div class="finished-div col-xs-12 col-md-6">
