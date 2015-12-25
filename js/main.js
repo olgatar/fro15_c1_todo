@@ -40,7 +40,7 @@ function addToDoTask(){
 
   var changeButton = document.createElement("button");
   changeButton.innerHTML = "Change";
-  changeButton.addEventListener("click", changeToDoTask(todoli));
+  //changeButton.addEventListener("click", changeToDoTask(todoli));
 
   todoli.appendChild(deleteButton);
   todoli.appendChild(changeButton);
