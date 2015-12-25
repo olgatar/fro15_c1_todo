@@ -38,6 +38,7 @@ function addToDoTask(){
 
   var changeButton = document.createElement("button");
   changeButton.innerHTML = "Change";
+  changeButton.addEventListener("click", changeToDoTask);
 
 
   todoli.appendChild(deleteButton);
@@ -51,6 +52,12 @@ function addToDoTask(){
 function deleteToDoTask(){
   todoList.removeChild(this.parentNode);
 }
+
+function changeToDoTask(){
+
+}
+
+
 
 /*
 if (storageAvailable('localStorage')) {
