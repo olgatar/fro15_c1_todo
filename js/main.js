@@ -21,8 +21,8 @@ var todoInput = document.getElementById('todoitem');
 var addButton = document.getElementById('addButton');
 var todoList = document.getElementById('todoul');
 var finishedList = document.getElementById('finishedul');
-var changeTaskPopup = document.getElementById('changeTaskPopup');
-var popupButton = document.getElementById('popupButton');
+//var changeTaskPopup = document.getElementById('changeTaskPopup');
+//var popupButton = document.getElementById('popupButton');
 
 //Add eventlistener to buttons
 addButton.addEventListener("click", addToDoTask);
