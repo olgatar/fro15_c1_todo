@@ -28,24 +28,26 @@ addButton.addEventListener("click", addToDoTask);
 
 //Function to add a task to ToDo list
 function addToDoTask(){
-  var todoli = document.createElement("li");
-  todoli.className = "list-group-item";
-  todoli.innerHTML = todoInput.value;
+  if (todoInput.value !== "") {
+    var todoli = document.createElement("li");
+    todoli.className = "list-group-item";
+    todoli.innerHTML = todoInput.value;
 
-  var deleteButton = document.createElement("button");
-  deleteButton.innerHTML = "Delete";
-  deleteButton.addEventListener("click", deleteToDoTask);
+    var deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    deleteButton.addEventListener("click", deleteToDoTask);
 
-  var changeButton = document.createElement("button");
-  changeButton.innerHTML = "Change";
-  changeButton.addEventListener("click", changeToDoTask);
+    var changeButton = document.createElement("button");
+    changeButton.innerHTML = "Change";
+    changeButton.addEventListener("click", changeToDoTask);
 
 
-  todoli.appendChild(deleteButton);
-  todoli.appendChild(changeButton);
+    todoli.appendChild(deleteButton);
+    todoli.appendChild(changeButton);
 
-  todoList.appendChild(todoli);
-  todoInput.value ="";
+    todoList.appendChild(todoli);
+    todoInput.value ="";
+  }
 }
 
 //Function to delete the task that has been added to ToDo list
@@ -54,7 +56,9 @@ function deleteToDoTask(){
 }
 
 function changeToDoTask(){
-
+  todoInput.focus();
+  addButton.innerHTML = "Change";
+  this.parentNode.innerHTML = todoInput.value;
 }
 
 
