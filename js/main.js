@@ -92,3 +92,4 @@ if(typeof(storage) !== "undefined") {
 } else {
     // Sorry! No Web Storage support..
 }
+*/
