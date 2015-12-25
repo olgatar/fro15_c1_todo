@@ -22,6 +22,7 @@ var addButton = document.getElementById('addButton');
 var todoList = document.getElementById('todoul');
 var finishedList = document.getElementById('finishedul');
 
+
 //Add eventlistener to buttons
 addButton.addEventListener("click", addToDoTask);
 
@@ -30,38 +31,53 @@ addButton.addEventListener("click", addToDoTask);
 function addToDoTask(){
   if (todoInput.value !== "") {
     var todoli = document.createElement("li");
+    var buttonDiv = document.createElement("div");
     todoli.className = "list-group-item";
     todoli.innerHTML = todoInput.value;
 
+
     var deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "Delete";
-    deleteButton.addEventListener("click", deleteToDoTask);
+        deleteButton.innerHTML = "Delete";
+        deleteButton.style.color = "white";
+        //deleteButton.style.display = "block";
+        deleteButton.addEventListener("click", deleteToDoTask);
 
     var changeButton = document.createElement("button");
-    changeButton.innerHTML = "Change";
-    changeButton.addEventListener("click", changeToDoTask);
+        changeButton.innerHTML = "Change";
+        changeButton.setAttribute("class","change");
+        changeButton.style.color = "white";
+        //changeButton.style.display = "block";
+        //changeButton.addEventListener("click", changeToDoTask);
 
+    var finishedButton = document.createElement("button");
+        finishedButton.innerHTML = "Finished";
+        finishedButton.style.color = "white";
+        //finishedButton.style.display = "inline-block";
+        //finishedButton.addEventListener("click", finishedToDoTask);
 
-    todoli.appendChild(deleteButton);
-    todoli.appendChild(changeButton);
+    buttonDiv.appendChild(changeButton);
+    buttonDiv.appendChild(finishedButton);
+    buttonDiv.appendChild(deleteButton);
+
+    todoli.appendChild(buttonDiv);
 
     todoList.appendChild(todoli);
     todoInput.value ="";
+
   }
 }
 
 //Function to delete the task that has been added to ToDo list
 function deleteToDoTask(){
-  todoList.removeChild(this.parentNode);
+
+
+
 }
 
-function changeToDoTask(){
-  todoInput.focus();
-  addButton.innerHTML = "Change";
-  this.parentNode.innerHTML = todoInput.value;
-}
-
-
+/*function changeToDoTask(){
+var changeInput = document.createElement("input");
+//this.innerText = changeInput.value
+  }*/
 
 /*
 if (storageAvailable('localStorage')) {
@@ -76,4 +92,3 @@ if(typeof(storage) !== "undefined") {
 } else {
     // Sorry! No Web Storage support..
 }
-*/
