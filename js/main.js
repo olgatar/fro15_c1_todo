@@ -55,12 +55,12 @@ function deleteToDoTask(){
 }
 
 //Function to delete the task that has been added to ToDo list
-function changeToDoTask(todoli){
+/* function changeToDoTask(todoli){
   changeTaskPopup.className = "show";
   var changeTask = document.getElementById('changeitem');
   var popupButton = document.getElementById('popupButton');
   popupButton.addEventListener("click", function(){
-  /*todoli.innerHTML = changeTask.value;
+  todoli.innerHTML = changeTask.value;
   todoli.appendChild(deleteButton);
   todoli.appendChild(changeButton);*/
   })
