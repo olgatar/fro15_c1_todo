@@ -66,6 +66,7 @@ if (storageAvailable('localStorage')) {
       todoList.appendChild(todoli);
       todoInput.value ="";
     }
+    saveToLocalStorage();
   }
 
   //Function to delete the task that has been added to ToDo list
@@ -74,6 +75,7 @@ if (storageAvailable('localStorage')) {
     var deleteFirstDiv = this.parentNode.previousSibling;
     deleteLastDiv.remove();
     deleteFirstDiv.parentNode.remove();
+    saveToLocalStorage();
   }
 
   //Function to change the task that has been added to ToDo list
@@ -81,6 +83,7 @@ if (storageAvailable('localStorage')) {
     var changeToDoTask = this.parentNode.previousSibling;
     changeToDoTask.contentEditable="true";
     changeToDoTask.style.color = "red";
+    saveToLocalStorage();
   }
 
   //Function to save changes to the task that has been added to ToDo list
@@ -88,6 +91,7 @@ if (storageAvailable('localStorage')) {
     var changeToDoTask = this.parentNode.previousSibling;
     changeToDoTask.contentEditable="false";
     changeToDoTask.style.color = "black";
+    saveToLocalStorage();
   }
 
   //Function to delete the task that has been added to ToDo list
@@ -101,6 +105,17 @@ if (storageAvailable('localStorage')) {
        finishedLastDiv.removeChild(finishedLastDiv.childNodes[i]);
      }
     finishedList.appendChild(finishedFirstDiv.parentNode);
+    saveToLocalStorage();
+
+  }
+
+  function saveToLocalStorage() {
+    localStorage.setItem("todoListStorage", JSON.stringify(todoList.innerHTML));
+    localStorage.setItem("finishedListStorage", JSON.stringify(finishedList.innerHTML));
+    var todoListGetStorage = localStorage.getItem("todoListStorage");
+    todoList.innerHTML = JSON.parse(todoListGetStorage);
+    var finishedListGetStorage = localStorage.getItem("finishedListStorage");
+    finishedList.innerHTML = JSON.parse(finishedListGetStorage);
   }
 
 }
