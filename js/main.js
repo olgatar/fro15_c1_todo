@@ -32,29 +32,36 @@ if (storageAvailable('localStorage')) {
 
       var buttonDiv = document.createElement("div");
       todoli.className = "list-group-item";
+
       todoliText.innerHTML = todoInput.value;
 
       var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
           deleteButton.style.color = "white";
+          deleteButton.setAttribute("onclick",deleteToDoTask);
 
       var changeButton = document.createElement("button");
           changeButton.innerHTML = "Change";
           changeButton.style.color = "white";
+          changeButton.setAttribute("onclick",changeToDoTask);
 
       var saveChangeButton = document.createElement("button");
           saveChangeButton.innerHTML = "Save changes";
           saveChangeButton.style.color = "white";
+          saveChangeButton.setAttribute("onclick",saveChangeToDoTask);
 
       var finishedButton = document.createElement("button");
           finishedButton.innerHTML = "Finished";
           finishedButton.style.color = "white";
+          finishedButton.setAttribute("onclick",finishedToDoTask);
+
 
       //Add eventlistener to new buttons
       deleteButton.addEventListener("click", deleteToDoTask);
       changeButton.addEventListener("click", changeToDoTask);
       saveChangeButton.addEventListener("click", saveChangeToDoTask);
       finishedButton.addEventListener("click", finishedToDoTask);
+
 
       //Append all elements to ToDoList
       buttonDiv.appendChild(changeButton);
@@ -65,9 +72,17 @@ if (storageAvailable('localStorage')) {
       todoli.appendChild(buttonDiv);
       todoList.appendChild(todoli);
       todoInput.value ="";
+
+      return deleteButton;
+      return changeButton;
+      return saveChangeButton;
+      return finishedButton;
+
+      saveToLocalStorage();
     }
     saveToLocalStorage();
   }
+
 
   //Function to delete the task that has been added to ToDo list
   function deleteToDoTask(){
@@ -106,18 +121,25 @@ if (storageAvailable('localStorage')) {
      }
     finishedList.appendChild(finishedFirstDiv.parentNode);
     saveToLocalStorage();
-
   }
 
   function saveToLocalStorage() {
-    localStorage.setItem("todoListStorage", JSON.stringify(todoList.innerHTML));
-    localStorage.setItem("finishedListStorage", JSON.stringify(finishedList.innerHTML));
-    var todoListGetStorage = localStorage.getItem("todoListStorage");
-    todoList.innerHTML = JSON.parse(todoListGetStorage);
-    var finishedListGetStorage = localStorage.getItem("finishedListStorage");
-    finishedList.innerHTML = JSON.parse(finishedListGetStorage);
+    var test1 = JSON.stringify(todoList.innerHTML);
+    localStorage.todoListStorage = test1;
+    //localStorage.setItem("finishedListStorage", JSON.stringify(finishedList.innerHTML));
   }
 
+  function getFromLocalStorage() {
+    //var todoListGetStorage = localStorage.getItem("todoListStorage");
+    todoList.innerHTML = localStorage.todoListStorage;
+    //var finishedListGetStorage = localStorage.getItem("finishedListStorage");
+    //finishedList.innerHTML = JSON.parse(finishedListGetStorage);
+  }
+
+window.onload = function() {
+  getFromLocalStorage();
+
+}
 }
 else {
 alert("No Local Storage!");
