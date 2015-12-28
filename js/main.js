@@ -13,6 +13,7 @@ function storageAvailable(type) {
 	}
 }
 
+//Main Function to add new tasks to ToDo List
 if (storageAvailable('localStorage')) {
 
   //Get all first elements that we need
@@ -20,7 +21,6 @@ if (storageAvailable('localStorage')) {
   var addButton = document.getElementById('addButton');
   var todoList = document.getElementById('todoul');
   var finishedList = document.getElementById('finishedul');
-
 
   //Add eventlistener to addButton
   addButton.addEventListener("click", addToDoTask);
@@ -41,6 +41,7 @@ if (storageAvailable('localStorage')) {
       var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
           deleteButton.style.color = "white";
+					deleteButton.style.marginRight = "15px";
           deleteButton.setAttribute("onclick","deleteToDoTask.call(this)");
 
       var changeButton = document.createElement("button");
@@ -49,12 +50,12 @@ if (storageAvailable('localStorage')) {
           changeButton.setAttribute("onclick","changeToDoTask.call(this)");
 
       var saveChangeButton = document.createElement("button");
-          saveChangeButton.innerHTML = "Save changes";
+          saveChangeButton.innerHTML = "Save";
           saveChangeButton.style.color = "white";
           saveChangeButton.setAttribute("onclick","saveChangeToDoTask.call(this)");
 
       var finishedButton = document.createElement("button");
-          finishedButton.innerHTML = "Finished";
+          finishedButton.innerHTML = "Done";
           finishedButton.style.color = "white";
           finishedButton.setAttribute("onclick","finishedToDoTask.call(this)");
 
@@ -96,10 +97,17 @@ if (storageAvailable('localStorage')) {
   function changeToDoTask(){
 		var changeToDoTaskFirstDiv = this.parentNode;
     var changeToDoTask = this.parentNode.previousSibling;
+
+		if (changeToDoTask.innerHTML !== "") {
     changeToDoTask.contentEditable="true";
 		changeToDoTaskFirstDiv.lastChild.style.visibility = "visible";
     changeToDoTask.style.color = "red";
-		preventDefault();
+		}
+		else if (changeToDoTask.innerHTML == ""){
+			changeToDoTask.innerHTML = "You cannot leave it empty! Click on Change and give me some text :)!";
+			changeToDoTask.style.color = "red";
+		}
+
 		//Call Function to save data to local storage
     saveToLocalStorage();
   }
@@ -108,10 +116,17 @@ if (storageAvailable('localStorage')) {
   function saveChangeToDoTask(){
 		var changeToDoTaskFirstDiv = this.parentNode;
     var changeToDoTask = this.parentNode.previousSibling;
+
+		if (changeToDoTask.innerHTML !== "" && changeToDoTask.innerHTML !== "You cannot leave me empty! Click on Change or Delete me :)!") {
     changeToDoTask.contentEditable="false";
     changeToDoTask.style.color = "black";
 		changeToDoTaskFirstDiv.lastChild.style.visibility = "hidden";
-		preventDefault();
+		}
+		else if (changeToDoTask.innerHTML == ""){
+			changeToDoTask.innerHTML = "You cannot leave me empty! Click on Change or Delete me :)!";
+			changeToDoTask.style.color = "red";
+		}
+
 		//Call Function to save data to local storage
     saveToLocalStorage();
   }
@@ -128,6 +143,10 @@ if (storageAvailable('localStorage')) {
        finishedLastDiv.removeChild(finishedLastDiv.childNodes[i]);
      }
     finishedList.appendChild(finishedFirstDiv.parentNode);
+		if (finishedFirstDiv.innerHTML == "You cannot leave me empty! Click on Change or Delete me :)!") {
+			finishedFirstDiv.style.color = "red";
+			finishedFirstDiv.innerHTML = "You cannot leave me empty! Delete me :)!";
+		}
 
 		//Call Function to save data to local storage
     saveToLocalStorage();
