@@ -43,6 +43,7 @@ button {
 }
 
 
-.todo-div {
-  padding-right: 40px;
+.todo-div,
+.finished-div {
+  padding: 0 5px;
 }
