@@ -104,7 +104,7 @@ if (storageAvailable('localStorage')) {
     changeToDoTask.style.color = "red";
 		}
 		else if (changeToDoTask.innerHTML == ""){
-			changeToDoTask.innerHTML = "You cannot leave it empty! Click on Change and give me some text :)!";
+			changeToDoTask.innerHTML = "You cannot leave me empty! Click on Change or Delete me :)";
 			changeToDoTask.style.color = "red";
 		}
 
