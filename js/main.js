@@ -20,7 +20,7 @@ if (storageAvailable('localStorage')) {
   var addButton = document.getElementById('addButton');
   var todoList = document.getElementById('todoul');
   var finishedList = document.getElementById('finishedul');
-	var explainMessage = document.createElement("span");
+	var explainMessage = document.createElement("p");
 	explainMessage.innerHTML = "Click on task to change!";
 	explainMessage.style.visibility = "hidden";
 
