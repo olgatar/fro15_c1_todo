@@ -106,6 +106,7 @@ if (storageAvailable('localStorage')) {
 		else if (changeToDoTask.innerHTML == ""){
 			changeToDoTask.innerHTML = "You cannot leave me empty! Click on Change or Delete me :)!";
 			changeToDoTask.style.color = "red";
+			changeToDoTask.contentEditable="true";
 		}
 
 		//Call Function to save data to local storage
@@ -125,6 +126,11 @@ if (storageAvailable('localStorage')) {
 		else if (changeToDoTask.innerHTML == ""){
 			changeToDoTask.innerHTML = "You cannot leave me empty! Click on Change or Delete me :)!";
 			changeToDoTask.style.color = "red";
+			changeToDoTask.contentEditable="false";
+		}
+		else if (changeToDoTask.innerHTML == "You cannot leave me empty! Click on Change or Delete me :)!"){
+			changeToDoTask.style.color = "red";
+			changeToDoTask.contentEditable="false";
 		}
 
 		//Call Function to save data to local storage
@@ -136,6 +142,7 @@ if (storageAvailable('localStorage')) {
     var finishedLastDiv = this.parentNode;
     var finishedFirstDiv = this.parentNode.previousSibling;
 		finishedFirstDiv.style.color = "black";
+		finishedFirstDiv.contentEditable="false";
     for (var i=0; i<finishedLastDiv.childNodes.length; i++) {
       finishedLastDiv.removeChild(finishedLastDiv.childNodes[i]);
      }
@@ -146,6 +153,7 @@ if (storageAvailable('localStorage')) {
 		if (finishedFirstDiv.innerHTML == "You cannot leave me empty! Click on Change or Delete me :)!") {
 			finishedFirstDiv.style.color = "red";
 			finishedFirstDiv.innerHTML = "You cannot leave me empty! Delete me :)!";
+			finishedFirstDiv.contentEditable="false";
 		}
 
 		//Call Function to save data to local storage
