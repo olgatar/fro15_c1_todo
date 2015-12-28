@@ -41,7 +41,7 @@ if (storageAvailable('localStorage')) {
       var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
           deleteButton.style.color = "white";
-					deleteButton.style.marginRight = "15px";
+					deleteButton.style.marginRight = "50px";
           deleteButton.setAttribute("onclick","deleteToDoTask.call(this)");
 
       var changeButton = document.createElement("button");
