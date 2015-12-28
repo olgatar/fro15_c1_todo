@@ -22,6 +22,7 @@ if (storageAvailable('localStorage')) {
   var finishedList = document.getElementById('finishedul');
 	var explainMessage = document.createElement("span");
 	explainMessage.innerHTML = "Click on task to change!";
+	explainMessage.style.visibility = "hidden";
 
   //Add eventlistener to addButton
   addButton.addEventListener("click", addToDoTask);
@@ -68,7 +69,7 @@ if (storageAvailable('localStorage')) {
       buttonDiv.appendChild(finishedButton);
       buttonDiv.appendChild(deleteButton);
 			buttonDiv.appendChild(explainMessage);
-			buttonDiv.lastChild.style.visibility = "hidden";
+			//buttonDiv.lastChild.style.visibility = "hidden";
       todoli.appendChild(todoliText);
       todoli.appendChild(buttonDiv);
       todoList.appendChild(todoli);
