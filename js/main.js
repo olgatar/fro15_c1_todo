@@ -20,8 +20,7 @@ if (storageAvailable('localStorage')) {
   var addButton = document.getElementById('addButton');
   var todoList = document.getElementById('todoul');
   var finishedList = document.getElementById('finishedul');
-	var explainMessage = document.createElement("span");
-	explainMessage.innerHTML = "Click on task to change!";
+
 
   //Add eventlistener to addButton
   addButton.addEventListener("click", addToDoTask);
@@ -35,6 +34,9 @@ if (storageAvailable('localStorage')) {
       var buttonDiv = document.createElement("div");
       todoli.className = "list-group-item";
       todoliText.innerHTML = todoInput.value;
+
+			var explainMessage = document.createElement("span");
+			explainMessage.innerHTML = "Click on task to change!";
 
       var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
