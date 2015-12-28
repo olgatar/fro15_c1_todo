@@ -109,7 +109,7 @@ if (storageAvailable('localStorage')) {
     changeToDoTask.contentEditable="false";
     changeToDoTask.style.color = "black";
 		changeToDoTaskFirstDiv.lastChild.style.visibility = "hidden";
-		
+
 		//Call Function to save data to local storage
     saveToLocalStorage();
   }
