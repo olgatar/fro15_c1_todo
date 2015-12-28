@@ -37,11 +37,11 @@ if (storageAvailable('localStorage')) {
 
 			var explainMessage = document.createElement("span");
 			explainMessage.innerHTML = "Click on task to change!";
+			explainMessage.style.display = "block";
 
       var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
           deleteButton.style.color = "white";
-					deleteButton.style.marginRight = "50px";
           deleteButton.setAttribute("onclick","deleteToDoTask.call(this)");
 
       var changeButton = document.createElement("button");
