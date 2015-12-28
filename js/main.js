@@ -97,7 +97,7 @@ if (storageAvailable('localStorage')) {
     changeToDoTask.contentEditable="true";
 		changeToDoTaskFirstDiv.lastChild.style.visibility = "visible";
     changeToDoTask.style.color = "red";
-
+		preventDefault();
 		//Call Function to save data to local storage
     saveToLocalStorage();
   }
@@ -109,7 +109,7 @@ if (storageAvailable('localStorage')) {
     changeToDoTask.contentEditable="false";
     changeToDoTask.style.color = "black";
 		changeToDoTaskFirstDiv.lastChild.style.visibility = "hidden";
-
+		preventDefault();
 		//Call Function to save data to local storage
     saveToLocalStorage();
   }
