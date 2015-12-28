@@ -37,7 +37,25 @@ if (storageAvailable('localStorage')) {
 
 			var explainMessage = document.createElement("span");
 			explainMessage.innerHTML = "Click on task to change!";
-			explainMessage.style.display = "block";
+
+			//Try to add media queries in javascript
+			if (matchMedia) {
+				var mq = window.matchMedia("(min-width: 420px)");
+				mq.addListener(WidthChange);
+				WidthChange(mq);
+			}
+
+			function WidthChange(mq) {
+				if (mq.matches) {
+					explainMessage.style.display = "inline-block";
+					explainMessage.style.padding = "0px 0px 0px 10px";
+				}
+				else {
+					explainMessage.style.display = "block";
+					explainMessage.style.padding = "5px 0px 0px 0px";
+				}
+
+			}
 
       var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
